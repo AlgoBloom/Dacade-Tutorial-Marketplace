@@ -10,3 +10,9 @@ class Product:
 
     class AppMethods:
         buy = Bytes("buy")
+
+    def application_creation(self):
+        return Seq([
+            # expecting four app args
+            Assert(Txn.application_args.length() == Int(4))
+        ])
