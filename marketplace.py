@@ -14,5 +14,11 @@ class Product:
     def application_creation(self):
         return Seq([
             # expecting four app args
-            Assert(Txn.application_args.length() == Int(4))
+            Assert(Txn.application_args.length() == Int(4)),
+            # note must say marketplace
+            Assert(Txn.note() == Bytes("marketplace")),
+            # requires the price is greater than zero
+            Assert(Txn.application_args[3] > Int(0)),
+            # exits sequence with approval
+            Approve()
         ])
