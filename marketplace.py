@@ -21,6 +21,8 @@ class Product:
             Assert(Txn.application_args[3] > Int(0)),
             # name saved as global key
             App.globalPut(Bytes("name"), Txn.application_args[0]),
+            # image saved as global key
+            App.globalPut(Bytes("image"), Txn.application_args[1]),
             # exits sequence with approval
             Approve()
         ])
