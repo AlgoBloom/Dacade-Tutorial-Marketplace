@@ -23,6 +23,8 @@ class Product:
             App.globalPut(Bytes("name"), Txn.application_args[0]),
             # image saved as global key
             App.globalPut(Bytes("image"), Txn.application_args[1]),
+            # description saved as global key
+            App.globalPut(Bytes("description"), Txn.application_args[2]),
             # exits sequence with approval
             Approve()
         ])
