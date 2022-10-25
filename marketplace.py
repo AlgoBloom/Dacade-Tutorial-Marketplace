@@ -19,6 +19,8 @@ class Product:
             Assert(Txn.note() == Bytes("marketplace")),
             # requires the price is greater than zero
             Assert(Txn.application_args[3] > Int(0)),
+            # name saved as global key
+            App.globalPut(Bytes("name"), Txn.application_args[0]),
             # exits sequence with approval
             Approve()
         ])
