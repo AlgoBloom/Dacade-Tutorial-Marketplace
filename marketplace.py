@@ -26,7 +26,7 @@ class Product:
             # description saved as global key
             App.globalPut(Bytes("description"), Txn.application_args[2]),
             # price saved as global key
-            App.globalPut(Bytes("price"), Txn.application_args[3]),
+            App.globalPut(Bytes("price"), Btoi(Txn.application_args[3])),
             # sold saved as global key
             App.globalPut(Bytes("sold"), Int(0)),
             # exits sequence with approval
