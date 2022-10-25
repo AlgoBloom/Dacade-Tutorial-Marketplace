@@ -25,6 +25,8 @@ class Product:
             App.globalPut(Bytes("image"), Txn.application_args[1]),
             # description saved as global key
             App.globalPut(Bytes("description"), Txn.application_args[2]),
+            # price saved as global key
+            App.globalPut(Bytes("price"), Txn.application_args[3]),
             # exits sequence with approval
             Approve()
         ])
