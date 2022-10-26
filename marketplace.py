@@ -33,4 +33,5 @@ class Product:
             Approve()
         ])
 
+    # this function will be the one app method defined in the app methods class
     def buy(self):
