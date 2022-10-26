@@ -42,5 +42,7 @@ class Product:
 
         # checks for a valid txn
         valid_payment_to_seller = And(
-            
+            # transaction type
+            Gtxn[1].type_enum() == TxnType.Payment,
+
         )
