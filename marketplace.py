@@ -37,3 +37,5 @@ class Product:
     def buy(self):
         # expects one app arg in the txn
         count = Txn.application_args[1]
+        # expects two txn
+        valid_number_of_transactions = Global.group_size() == Int(2)
