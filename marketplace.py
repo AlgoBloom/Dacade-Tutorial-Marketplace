@@ -48,7 +48,7 @@ class Product:
             Gtxn[1].receiver() == Global.creator_address(),
             # amount of the payment is the price times the count
             Gtxn[1].amount() == App.globalGet(self.Variables.price) * Btoi(count),
-            # sender of the payment (second txn) is the txn sender addr for the first txn
+            # sender of payment txn must match sender of smart contract call
             Gtxn[1].sender() == Gtxn[0].sender(),
         )
 
@@ -69,3 +69,6 @@ class Product:
 
         # return actual executes something, if can buy passes then the update state will run, else the reject will run and buy function will exit
         return If(can_buy).Then(update_state).Else(Reject())
+
+    # application deletion function, self passes in the variables and app methods
+    def application_deletion(self):
