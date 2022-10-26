@@ -46,5 +46,8 @@ class Product:
             Gtxn[1].type_enum() == TxnType.Payment,
             # receiver must be the sc creator
             Gtxn[1].receiver() == Global.creator_address(),
-
+            # amount of the payment is the price times the count
+            Gtxn[1].amount() == App.globalGet(self.Variables.price) * Btoi(count),
+            # sender of the payment (second txn) is the txn sender addr for the first txn
+            Gtxn[1].sender() == Gtxn[0].sender(),
         )
