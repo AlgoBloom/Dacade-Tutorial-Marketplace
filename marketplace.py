@@ -32,3 +32,5 @@ class Product:
             # exits sequence with approval
             Approve()
         ])
+
+    def buy(self):
