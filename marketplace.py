@@ -39,3 +39,8 @@ class Product:
         count = Txn.application_args[1]
         # expects two txn
         valid_number_of_transactions = Global.group_size() == Int(2)
+
+        # checks for a valid txn
+        valid_payment_to_seller = And(
+            
+        )
