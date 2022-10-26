@@ -72,3 +72,5 @@ class Product:
 
     # application deletion function, self passes in the variables and app methods
     def application_deletion(self):
+        # checks that txn sender is sc creator before deleting
+        return Return(Txn.sender() == Global.creator_address())
