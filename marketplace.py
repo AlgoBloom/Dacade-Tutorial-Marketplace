@@ -35,3 +35,5 @@ class Product:
 
     # this function will be the one app method defined in the app methods class
     def buy(self):
+        # expects one app arg in the txn
+        count = Txn.application_args[1]
