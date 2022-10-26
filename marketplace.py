@@ -66,3 +66,6 @@ class Product:
                 # exits the seq with an approval
                 Approve()
         ])
+
+        # return actual executes something, if can buy passes then the update state will run, else the reject will run and buy function will exit
+        return If(can_buy).Then(update_state).Else(Reject())
