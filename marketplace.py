@@ -42,7 +42,9 @@ class Product:
 
         # checks for a valid txn
         valid_payment_to_seller = And(
-            # transaction type
+            # transaction type must be payment
             Gtxn[1].type_enum() == TxnType.Payment,
+            # receiver must be the sc creator
+            Gtxn[1].receiver() == Global.creator_address(),
 
         )
