@@ -55,3 +55,14 @@ class Product:
         # can buy checks that there is a valiud number of txns and that the checks in valid payment to seller and subroutine pass
         can_buy = And(valid_number_of_transactions,
                       valid_payment_to_seller)
+
+        # updates the global state
+        update_state = Seq([
+            App.globalPut(
+                # accessing the sold key
+                self.Variables.sold,
+                # putting current sold value plus purchase count
+                App.globalGet(self.Variables.sold) + Btoi(count)),
+                # exits the seq with an approval
+                Approve()
+        ])
