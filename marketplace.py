@@ -51,3 +51,7 @@ class Product:
             # sender of the payment (second txn) is the txn sender addr for the first txn
             Gtxn[1].sender() == Gtxn[0].sender(),
         )
+
+        # can buy checks that there is a valiud number of txns and that the checks in valid payment to seller and subroutine pass
+        can_buy = And(valid_number_of_transactions,
+                      valid_payment_to_seller)
