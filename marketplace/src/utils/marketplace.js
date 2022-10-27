@@ -37,5 +37,11 @@ const compileProgram = async (programSource) => {
     let encoder = new TextEncoder();
     let programBytes = encoder.encode(programSource);
     let compileResponse = await algodClient.compile(programBytes).do();
+    // algod API requires txn params as Uint8Array
     return new Uint8Array(Buffer.from(compileResponse.result, "base64"));
+}
+
+// now we create a product, application creation txn
+export const createProductAction = async (senderAddress, product) => {
+    
 }
