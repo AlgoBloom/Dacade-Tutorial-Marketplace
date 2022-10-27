@@ -84,4 +84,5 @@ class Product:
             [Txn.on_completion() == OnComplete.DeleteApplication, self.application_deletion()],
             # if the first app arg is the buy method, run buy function
             [Txn.application_args[0] == self.AppMethods.buy, self.buy()]
+            # otherwise the transaction is rejected
         )
