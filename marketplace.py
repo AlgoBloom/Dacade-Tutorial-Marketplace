@@ -20,15 +20,15 @@ class Product:
             # requires the price is greater than zero
             Assert(Btoi(Txn.application_args[3]) > Int(0)),
             # name saved as global key
-            App.globalPut(Bytes("name"), Txn.application_args[0]),
+            App.globalPut(self.Variables.name, Txn.application_args[0]),
             # image saved as global key
-            App.globalPut(Bytes("image"), Txn.application_args[1]),
+            App.globalPut(self.Variables.image, Txn.application_args[1]),
             # description saved as global key
-            App.globalPut(Bytes("description"), Txn.application_args[2]),
+            App.globalPut(self.Variables.description, Txn.application_args[2]),
             # price saved as global key
-            App.globalPut(Bytes("price"), Btoi(Txn.application_args[3])),
+            App.globalPut(self.Variables.price, Btoi(Txn.application_args[3])),
             # sold saved as global key
-            App.globalPut(Bytes("sold"), Int(0)),
+            App.globalPut(self.Variables.sold, Int(0)),
             # exits sequence with approval
             Approve()
         ])
