@@ -30,3 +30,12 @@ class Product {
         this.owner = owner;
     }
 }
+
+// implement logic for building a product
+// compiles sc in teal fmt to program
+const compileProgram = async (programSource) => {
+    let encoder = new TextEncoder();
+    let programBytes = encoder.encode(programSource);
+    let compileResponse = await algodClient.compile(programBytes).do();
+    return new Uint8Array(Buffer.from(compileResponse.result, "base64"));
+}
