@@ -74,3 +74,6 @@ class Product:
     def application_deletion(self):
         # checks that txn sender is sc creator before deleting
         return Return(Txn.sender() == Global.creator_address())
+
+    # on application start we check conditions to see what we do
+    def application_start(self):
