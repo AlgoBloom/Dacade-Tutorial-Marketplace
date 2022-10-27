@@ -77,3 +77,8 @@ class Product:
 
     # on application start we check conditions to see what we do
     def application_start(self):
+        return Cond(
+            # if the app doesn't exist then create it
+            [Txn.application_id() == Int(0), self.application_creation],
+            
+        )
