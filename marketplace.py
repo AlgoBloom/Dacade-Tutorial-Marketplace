@@ -16,9 +16,9 @@ class Product:
             # expecting four app args
             Assert(Txn.application_args.length() == Int(4)),
             # note must say marketplace
-            Assert(Txn.note() == Bytes("marketplace")),
+            Assert(Txn.note() == Bytes("marketplace:uv1")),
             # requires the price is greater than zero
-            Assert(Txn.application_args[3] > Int(0)),
+            Assert(Btoi(Txn.application_args[3]) > Int(0)),
             # name saved as global key
             App.globalPut(Bytes("name"), Txn.application_args[0]),
             # image saved as global key
