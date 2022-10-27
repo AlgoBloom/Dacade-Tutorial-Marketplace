@@ -46,4 +46,12 @@ export const createProductAction = async (senderAddress, product) => {
     // log that the product is being added
     console.log("Adding product...")
 
+    // here we use the algod client to get txn params
+    let params = await algodClient.getTransactionParams().do();
+    // sets the fee param to be the algorand min txn fee from the algosdk
+    params.fee = algosdk.ALGORAND_MIN_TX_FEE;
+    // set flat fee to true
+    params.flatFee = true;
+
+    
 }
