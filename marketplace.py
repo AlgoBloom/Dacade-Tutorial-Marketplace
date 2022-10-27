@@ -92,4 +92,9 @@ class Product:
         # returns the application start conditional statement
         return self.application_start()
 
+    # clear program ran by AVM to remove from user accts
+    def clear_program(self):
+        # approves the clear
+        return Return(Int(1))
+
     
