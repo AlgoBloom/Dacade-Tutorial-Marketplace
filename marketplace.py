@@ -86,3 +86,10 @@ class Product:
             [Txn.application_args[0] == self.AppMethods.buy, self.buy()]
             # otherwise the transaction is rejected
         )
+
+    # approval program ran by AVM
+    def approval_program(self):
+        # returns the application start conditional statement
+        return self.application_start()
+
+    
