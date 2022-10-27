@@ -21,3 +21,17 @@ export const algodClient = new algosdk.Algodv2(config.algodToken, config.algodSe
 export const indexerClient = new algosdk.Indexer(config.indexerToken, config.indexerServer, config.indexerPort)
 // create wallet connection
 export const MyAlgoConnect = new MyAlgoConnect()
+
+// used to limit search of txn up to this round
+export const minRound = 21540981
+
+// arc standard for naming
+// export const marketPlaceNote = "marketplace:uv1"
+
+// max local storange allocation, immutable
+export const numLocalInts = 0
+export const numLocalBytes = 0
+
+// max global storage allocation, immutable
+export const numGlobalInts = 2 // count and sold
+export const numGlobalBytes = 3 // name and desc
