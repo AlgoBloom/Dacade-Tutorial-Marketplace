@@ -80,5 +80,8 @@ class Product:
         return Cond(
             # if the app doesn't exist then create it
             [Txn.application_id() == Int(0), self.application_creation],
-            
+            # check if the txn is a delete app type, if so delete app
+            [Txn.on_completion() == OnComplete.DeleteApplication, self.application_deletion()],
+            # if the first app arg is the buy method, run buy function
+            [Txn.application_args[0] == self.AppMethods.buy, self.buy()]
         )
