@@ -43,5 +43,7 @@ const compileProgram = async (programSource) => {
 
 // now we create a product, application creation txn
 export const createProductAction = async (senderAddress, product) => {
-    
+    // log that the product is being added
+    console.log("Adding product...")
+
 }
