@@ -13,8 +13,8 @@ import {
     numLocalInts
 } from "./constants"
 // import our teal programs
-import approvalProgram from "!!raw-loader!../contracts/marketplace_approval.teal"
-import clearProgram from "!!raw-loader!../contracts/marketplace_clear.teal"
+import approvalProgram from "!!raw-loader!../contracts/marketplace_approval.teal";
+import clearProgram from "!!raw-loader!../contracts/marketplace_clear.teal";
 // import conversions
 import { base64ToUTF8String, utf8ToBase64String } from "./conversions"
 
@@ -53,5 +53,7 @@ export const createProductAction = async (senderAddress, product) => {
     // set flat fee to true
     params.flatFee = true;
 
-    
+    // compile programs
+    const compiledApprovalProgram = await compileProgram(approvalProgram);
+    const compiledClearProgram = await compileProgram(clearProgram);
 }
