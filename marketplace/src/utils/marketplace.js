@@ -96,6 +96,11 @@ export const createProductAction = async (senderAddress, product) => {
 
     // print transaction info
     console.log("Transaction " + txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
-    
 
+    // await transaction response and then pull out app id
+    let transactionResponse = await algodClient.pendingTransactionInformation(tx.Id).do();
+    let appId = transactionResponse['application-index'];
+    console.log("Created new app-id: ", appId);
+    // complete function by returnin the app id of the product created
+    return appId
 }
