@@ -56,4 +56,14 @@ export const createProductAction = async (senderAddress, product) => {
     // compile programs
     const compiledApprovalProgram = await compileProgram(approvalProgram);
     const compiledClearProgram = await compileProgram(clearProgram);
+
+    // creates a note to id txns 
+    let note = new TextEncoder().encode(marketplaceNote);
+    let name = new TextEncoder().encode(product.name);
+    let image = new TextEncoder().encode(product.image);
+    let description = new TextEncoder().encode(product.description);
+    let price = new TextEncoder().encode(product.price);
+
+    // passes in the above as a group of app args
+    let appArgs = [name, image, description, price];
 }
