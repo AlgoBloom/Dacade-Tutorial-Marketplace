@@ -6,7 +6,7 @@ import {
     indexerClient,
     // marketPlaceNote,
     minRound,
-    MyAlgoConnect,
+    myAlgoConnect,
     numGlobalBytes,
     numGlobalInts,
     numLocalBytes,
@@ -66,4 +66,36 @@ export const createProductAction = async (senderAddress, product) => {
 
     // passes in the above as a group of app args
     let appArgs = [name, image, description, price];
+
+    // application create txn is built here
+    let txn = algosdk.makeApplicationCallTxnFromObject({
+        from: senderAddress,
+        // txn params come from algod client
+        suggestedParams: params,
+        onComplete: algosdk.OnApplicationComplete.NoOpOC,
+        approvalProgram: compiledApprovalProgram,
+        clearProgram: compiledClearProgram,
+        numLocalInts: numLocalInts,
+        numLocalByteSlices: numLocalBytes,
+        numGlobalInts: numGlobalInts,
+        numGlobalByteSlices: numLocalBytes,
+        note: note,
+        appArgs: appArgs
+    });
+
+    // transaction id
+    let txId = txn.txID().toString();
+
+    // transaction is signed and submitted 
+    let signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
+    console.log("Signed transaction with txID: %s", txId);
+    await algodClient.sendRawTransaction(signedTxn.blob).do();
+
+    // returns confirmed txn object
+    let confirmedTxn = await algosdk.waitForConfirmation(algodClient, txId, 4);
+
+    // print transaction info
+    console.log("Transaction " + txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
+    
+
 }
