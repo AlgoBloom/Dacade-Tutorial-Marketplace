@@ -104,3 +104,8 @@ export const createProductAction = async (senderAddress, product) => {
     // complete function by returnin the app id of the product created
     return appId
 }
+
+// function that purchases a product from the smart contract
+export const buyProductAction = async (senderAddress, product, count) => {
+    
+}
