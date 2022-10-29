@@ -112,6 +112,13 @@ export const buyProductAction = async (senderAddress, product, count) => {
 
     // get txn params from algosdk
     let params = await algodClient.getTransactionParams().do();
+    // set fee param equal to the algorand min txn fee
+    params.fee = algosdk.ALGORAND_MIN_TX_FEE;
+    // set flat fee param equal to true
+    params.flatFee = true;
+
+
     // get the count and encode as uint 64
     let countArg = algosdk.encodeUint64(count);
+
 }
