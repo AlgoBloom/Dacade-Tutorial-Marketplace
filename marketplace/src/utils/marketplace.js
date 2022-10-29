@@ -109,4 +109,7 @@ export const createProductAction = async (senderAddress, product) => {
 export const buyProductAction = async (senderAddress, product, count) => {
     // print statement tells user that product is being purchased
     console.log("Buying product...");
+
+    // get txn params from algosdk
+    let params = await algodClient.getTransactionParams().do();
 }
