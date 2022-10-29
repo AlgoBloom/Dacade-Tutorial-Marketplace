@@ -112,4 +112,6 @@ export const buyProductAction = async (senderAddress, product, count) => {
 
     // get txn params from algosdk
     let params = await algodClient.getTransactionParams().do();
+    // get the count and encode as uint 64
+    let countArg = algosdk.encodeUint64(count);
 }
