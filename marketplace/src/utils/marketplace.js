@@ -117,8 +117,11 @@ export const buyProductAction = async (senderAddress, product, count) => {
     // set flat fee param equal to true
     params.flatFee = true;
 
-
+    // get the buy argument and encode it
+    let buyArg = new TextEncoder().encode("buy");
     // get the count and encode as uint 64
     let countArg = algosdk.encodeUint64(count);
+    // create an array of app args
+    let appArgs = [buyArg, countArg];
 
 }
