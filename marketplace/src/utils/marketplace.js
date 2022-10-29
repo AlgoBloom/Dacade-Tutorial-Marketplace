@@ -107,5 +107,6 @@ export const createProductAction = async (senderAddress, product) => {
 
 // function that purchases a product from the smart contract
 export const buyProductAction = async (senderAddress, product, count) => {
-    
+    // print statement tells user that product is being purchased
+    console.log("Buying product...");
 }
