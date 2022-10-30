@@ -132,6 +132,8 @@ export const buyProductAction = async (senderAddress, product, count) => {
         appIndex: product.appId,
         // transaction type is a noop call
         onComplete: algosdk.OnApplicationComplete.NoOpOC,
+        // pulling in the suggester parameters from the product object
+        suggestedParams: params,
         
 
 
