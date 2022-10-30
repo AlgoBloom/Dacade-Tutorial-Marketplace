@@ -130,6 +130,9 @@ export const buyProductAction = async (senderAddress, product, count) => {
         from: senderAddress,
         // app index is saved as appId
         appIndex: product.appId,
+        // transaction type is a noop call
+        onComplete: algosdk.OnApplicationComplete.NoOpOC,
+        
 
 
     })
