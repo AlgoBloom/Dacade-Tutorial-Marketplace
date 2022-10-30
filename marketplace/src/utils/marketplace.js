@@ -124,4 +124,9 @@ export const buyProductAction = async (senderAddress, product, count) => {
     // create an array of app args
     let appArgs = [buyArg, countArg];
 
+    // building the application call transaction
+    let appCallTxn = algosdk.makeApplicationCallTxnFromObject({
+        
+    })
+
 }
