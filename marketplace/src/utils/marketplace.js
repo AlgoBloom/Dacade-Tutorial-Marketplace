@@ -134,9 +134,8 @@ export const buyProductAction = async (senderAddress, product, count) => {
         onComplete: algosdk.OnApplicationComplete.NoOpOC,
         // pulling in the suggester parameters from the product object
         suggestedParams: params,
-        
-
-
+        // pulling in the application arguments from the appArgs array we created
+        appArgs: appArgs
     })
 
 }
