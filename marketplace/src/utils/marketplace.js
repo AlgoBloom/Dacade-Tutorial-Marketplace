@@ -128,7 +128,9 @@ export const buyProductAction = async (senderAddress, product, count) => {
     let appCallTxn = algosdk.makeApplicationCallTxnFromObject({
         // product is purchased by txn sender
         from: senderAddress,
-        
+        // app index is saved as appId
+        appIndex: product.appId,
+
 
     })
 
