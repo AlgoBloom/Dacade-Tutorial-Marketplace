@@ -126,7 +126,10 @@ export const buyProductAction = async (senderAddress, product, count) => {
 
     // building the application call transaction
     let appCallTxn = algosdk.makeApplicationCallTxnFromObject({
+        // product is purchased by txn sender
+        from: senderAddress,
         
+
     })
 
 }
