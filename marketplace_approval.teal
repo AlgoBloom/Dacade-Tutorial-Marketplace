@@ -59,6 +59,10 @@ txn NumAppArgs
 int 4
 ==
 assert
+txn Note
+byte "tutorial-marketplace:uv1"
+==
+assert
 txna ApplicationArgs 3
 btoi
 int 0
