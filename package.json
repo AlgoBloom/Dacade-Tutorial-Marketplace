@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "bignumber.js": "^9.1.0",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "prop-types": "^15.8.1",
+    "react-bootstrap": "^2.5.0",
+    "react-jazzicon": "^1.0.4",
+    "react-toastify": "9.0.3"
+  }
+}
